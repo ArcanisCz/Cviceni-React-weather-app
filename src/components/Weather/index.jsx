@@ -9,7 +9,7 @@ const convertTimestamp = (timestamp) => {
   const formattedTime =
     hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
 
-  console.log(formattedTime);
+  //console.log(formattedTime);
   return formattedTime;
 };
 
