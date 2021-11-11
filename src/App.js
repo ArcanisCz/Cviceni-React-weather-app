@@ -4,15 +4,16 @@ import './App.css';
 const App = () => {
   const [weather, setWeather] = useState(' ');
 
-  const id = process.env.REACT_APP_MY_API_ID;
+  const myId = process.env.REACT_APP_MY_API_ID;
+  console.log(myId);
 
   const fetchWeather = () => {
     fetch(
-      `https://api.openweathermap.org/data/2.5/weather?q=Prague,cz&units=metric&APPID=${id}`,
+      `https://api.openweathermap.org/data/2.5/weather?q=Prague,cz&units=metric&APPID=${myId}`,
     )
       .then((response) => response.json())
-      .then((data) => {
-        setWeather(data);
+      .then((json) => {
+        setWeather(json);
       });
   };
 
