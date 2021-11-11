@@ -2,10 +2,9 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 
 const App = () => {
-  const [weather, setWeather] = useState(' ');
+  const [weather, setWeather] = useState(JSON.parse('{}'));
 
   const myId = process.env.REACT_APP_MY_API_ID;
-  console.log(myId);
 
   const fetchWeather = () => {
     fetch(
@@ -20,6 +19,7 @@ const App = () => {
   useEffect(() => {
     fetchWeather();
   }, []);
+
   console.log(weather);
 
   return (
@@ -41,7 +41,9 @@ const App = () => {
                 <span className="weather__temp-value" id="teplota">
                   --
                 </span>
-                <span className="weather__temp-unit">°C</span>
+                <span className="weather__temp-unit">
+                  {Math.round(weather.main.temp)} °C
+                </span>
                 <div className="weather__description" id="popis">
                   --
                 </div>
