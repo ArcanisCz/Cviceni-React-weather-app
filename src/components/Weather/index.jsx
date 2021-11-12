@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState } from 'react';
+import './style.css';
 
 const convertTimestamp = (timestamp) => {
   const date = new Date(timestamp * 1000);
