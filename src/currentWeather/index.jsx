@@ -8,7 +8,7 @@ const CurrentWeather = () => {
 
   const fetchWeather = () => {
     fetch(
-      `https://api.openweathermap.org/data/2.5/weather?q=Prague,cz&units=metric&APPID=${myId}`,
+      `https://api.openweathermap.org/data/2.5/weather?q=Prague&units=metric&APPID=${myId}`,
     )
       .then((response) => response.json())
       .then((json) => {
@@ -36,8 +36,14 @@ const CurrentWeather = () => {
     return `${hours}:${twoDigitMinutes}`;
   };
 
+  const getBackground = (weather) => {
+    if (weather?.main.temp < 10) {
+      return 'weather__current weather__current--cold';
+    } else return 'weather__current';
+  };
+
   return (
-    <div className="weather__current">
+    <div className={getBackground(weather)}>
       <h2 className="weather__city" id="mesto">
         {weather?.name}, {weather?.sys.country}
       </h2>
