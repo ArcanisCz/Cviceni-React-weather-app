@@ -6,6 +6,8 @@
 }
 
 .weather__current--cold {
+    min-height: 360px;
+    padding: 20px;
     background: var(--gradient-cold);
 }
 

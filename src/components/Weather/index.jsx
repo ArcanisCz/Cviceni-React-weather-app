@@ -14,7 +14,13 @@ const convertTimestamp = (timestamp) => {
 
 const Weather = ({ weather }) => {
   return (
-    <div className="weather__current">
+    <div
+      className={
+        Math.round(weather.main.temp) < 10
+          ? 'weather__current--cold'
+          : 'weather__current'
+      }
+    >
       <h2 className="weather__city" id="mesto">
         {weather.name}
       </h2>
