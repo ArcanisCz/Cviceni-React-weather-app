@@ -6,6 +6,7 @@ const myId = process.env.REACT_APP_MY_API_ID;
 
 const App = () => {
   const [weather, setWeather] = useState(null); //string?!
+  const [forecast, setForecast] = useState(null);
 
   const fetchWeather = () => {
     fetch(
@@ -17,11 +18,26 @@ const App = () => {
       });
   };
 
+  const fetchForecast = () => {
+    fetch(
+      `https://api.openweathermap.org/data/2.5/forecast?q=Prague&units=metric&APPID=${myId}`,
+    )
+      .then((response) => response.json())
+      .then((json) => {
+        setForecast(json);
+      });
+  };
+
   useEffect(() => {
     fetchWeather();
   }, []);
 
+  useEffect(() => {
+    fetchForecast();
+  }, []);
+
   console.log(weather);
+  console.log(forecast);
 
   return (
     <div className="App">
