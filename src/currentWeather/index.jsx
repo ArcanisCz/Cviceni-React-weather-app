@@ -1,27 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import './style.css';
 
-const CurrentWeather = () => {
-  const [weather, setWeather] = useState(null); //string?!
-
-  const myId = process.env.REACT_APP_MY_API_ID;
-
-  const fetchWeather = () => {
-    fetch(
-      `https://api.openweathermap.org/data/2.5/weather?q=Prague&units=metric&APPID=${myId}`,
-    )
-      .then((response) => response.json())
-      .then((json) => {
-        setWeather(json);
-      });
-  };
-
-  useEffect(() => {
-    fetchWeather();
-  }, []);
-
-  console.log(weather);
-
+const CurrentWeather = ({ weather }) => {
   const getSunrise = (unixSunrise) => {
     const hours = new Date(unixSunrise * 1000).getHours();
     const minutes = new Date(unixSunrise * 1000).getMinutes();
@@ -36,14 +16,14 @@ const CurrentWeather = () => {
     return `${hours}:${twoDigitMinutes}`;
   };
 
-  const getBackground = (weather) => {
+  const getBackground = ({ weather }) => {
     if (weather?.main.temp < 10) {
       return 'weather__current weather__current--cold';
     } else return 'weather__current';
   };
 
   return (
-    <div className={getBackground(weather)}>
+    <div className={getBackground({ weather })}>
       <h2 className="weather__city" id="mesto">
         {weather?.name}, {weather?.sys.country}
       </h2>
