@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 import CurrentWeather from './components/currentWeather';
 import WeatherForecast from './components/WeatherForecast';
-import { filterForecast } from './utils';
+import { filterForecast } from './utils/functions';
 
 const myId = process.env.REACT_APP_MY_API_ID;
 
