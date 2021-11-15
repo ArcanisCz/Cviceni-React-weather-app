@@ -35,7 +35,7 @@ const App = () => {
 
   useEffect(() => {
     fetchWeather(city);
-    fetchForecast(city);
+    fetchForecast(city); // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [city]);
 
   return (
@@ -49,7 +49,7 @@ const App = () => {
               onClick={() => {
                 setCity('Prague');
               }}
-            >
+            >s
               Prague
             </button>
             <button
