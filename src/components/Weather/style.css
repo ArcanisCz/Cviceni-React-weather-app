@@ -1,17 +1,23 @@
-.weather__current {
+/* .weather__current {
     min-height: 360px;
     padding: 20px;
     background: var(--gradient-warm);
     color: var(--white);
-}
+}*/
 
-.weather__current--cold {
-    min-height: 360px;
-    padding: 20px;
-    background: var(--gradient-cold);
-}
 
-.weather__city {
+/*.weather__current--cold {*/
+
+
+/*  min-height: 360px;
+    padding: 20px; */
+
+
+/* background: var(--gradient-cold);
+}*/
+
+
+/*.weather__city {
     font-size: var(--font-title);
     font-weight: 400;
     line-height: 1;
@@ -79,4 +85,4 @@
 
 .weather__section--icon i {
     font-size: var(--font-xl);
-}
+} */
