@@ -3,16 +3,18 @@ import './App.css';
 import CurrentWeather from './components/currentWeather';
 import WeatherForecast from './components/WeatherForecast';
 import { filterForecast } from './utils/functions';
+import SelectCity from './components/selectCity';
 
 const myId = process.env.REACT_APP_MY_API_ID;
 
 const App = () => {
   const [weather, setWeather] = useState(null); //string?!
+  const [city, setCity] = useState('Prague');
   const [forecast, setForecast] = useState(null);
 
-  const fetchWeather = () => {
+  const fetchWeather = (city) => {
     fetch(
-      `https://api.openweathermap.org/data/2.5/weather?q=Prague&units=metric&APPID=${myId}`,
+      `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&APPID=${myId}`,
     )
       .then((response) => response.json())
       .then((data) => {
@@ -20,7 +22,7 @@ const App = () => {
       });
   };
 
-  const fetchForecast = () => {
+  const fetchForecast = (city) => {
     fetch(
       `https://api.openweathermap.org/data/2.5/forecast?q=Prague&units=metric&APPID=${myId}`,
     )
@@ -30,13 +32,17 @@ const App = () => {
       });
   };
 
-  useEffect(() => {
-    fetchWeather();
-  }, []);
+  const handleChangeCity = (c) => {
+    setCity(c);
+  };
 
   useEffect(() => {
-    fetchForecast();
-  }, []);
+    fetchWeather(city);
+  }, [city]);
+
+  useEffect(() => {
+    fetchForecast(city);
+  }, [city]);
 
   console.log(weather);
   console.log(forecast);
@@ -45,6 +51,7 @@ const App = () => {
     <div className="App">
       <div className="container">
         <h1>My Weather App</h1>
+        <SelectCity actualCity={city} onChange={handleChangeCity} />
         <div className="weather">
           {/* <div className="button-group">
             <button className="button">City01</button>
