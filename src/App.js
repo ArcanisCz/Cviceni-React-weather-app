@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 import CurrentWeather from './currentWeather';
 import WeatherForecast from './WeatherForecast';
+import { filterForecast } from './utils';
 
 const myId = process.env.REACT_APP_MY_API_ID;
 
@@ -14,8 +15,8 @@ const App = () => {
       `https://api.openweathermap.org/data/2.5/weather?q=Prague&units=metric&APPID=${myId}`,
     )
       .then((response) => response.json())
-      .then((json) => {
-        setWeather(json);
+      .then((data) => {
+        setWeather(data);
       });
   };
 
@@ -24,8 +25,8 @@ const App = () => {
       `https://api.openweathermap.org/data/2.5/forecast?q=Prague&units=metric&APPID=${myId}`,
     )
       .then((response) => response.json())
-      .then((json) => {
-        setForecast(json);
+      .then((data) => {
+        setForecast(filterForecast(data.list));
       });
   };
 
@@ -52,7 +53,7 @@ const App = () => {
           </div> */}
 
           <CurrentWeather weather={weather} />
-          <WeatherForecast />
+          <WeatherForecast forecast={forecast} />
         </div>
       </div>
     </div>
