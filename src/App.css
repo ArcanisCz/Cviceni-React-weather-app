@@ -78,3 +78,14 @@ h1 {
   background-color: var(--background-active);
   outline: none;
 }
+
+
+.preloader {
+  background-color: #ffe9f2e3;
+  border-radius: 1rem;
+  position: absolute;
+  padding: 1.5rem;
+  font-size: 2rem;
+  left: 50%;
+  top: 50%;
+}
