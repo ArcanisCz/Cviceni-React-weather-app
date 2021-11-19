@@ -1,27 +1,11 @@
 import React from 'react';
 import './style.css';
 
+import { getSunrise } from '../../utils/functions';
+import { getSunset } from '../../utils/functions';
+import { getBackground } from '../../utils/functions';
+
 const CurrentWeather = ({ weather }) => {
-  const getSunrise = (unixSunrise) => {
-    const hours = new Date(unixSunrise * 1000).getHours();
-    const minutes = new Date(unixSunrise * 1000).getMinutes();
-    const twoDigitMinutes = minutes.toString().padStart(2, '0');
-    return `${hours}:${twoDigitMinutes}`;
-  };
-
-  const getSunset = (unixSunset) => {
-    const hours = new Date(unixSunset * 1000).getHours();
-    const minutes = new Date(unixSunset * 1000).getMinutes();
-    const twoDigitMinutes = minutes.toString().padStart(2, '0');
-    return `${hours}:${twoDigitMinutes}`;
-  };
-
-  const getBackground = ({ weather }) => {
-    if (weather?.main.temp < 10) {
-      return 'weather__current weather__current--cold';
-    } else return 'weather__current';
-  };
-
   return (
     <div className={getBackground({ weather })}>
       <h2 className="weather__city" id="mesto">

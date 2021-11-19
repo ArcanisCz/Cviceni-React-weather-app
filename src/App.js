@@ -24,7 +24,7 @@ const App = () => {
 
   const fetchForecast = (city) => {
     fetch(
-      `https://api.openweathermap.org/data/2.5/forecast?q=Prague&units=metric&APPID=${myId}`,
+      `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&APPID=${myId}`,
     )
       .then((response) => response.json())
       .then((data) => {
@@ -53,12 +53,6 @@ const App = () => {
         <h1>My Weather App</h1>
         <SelectCity actualCity={city} onChange={handleChangeCity} />
         <div className="weather">
-          {/* <div className="button-group">
-            <button className="button">City01</button>
-            <button className="button">City02</button>
-            <button className="button">City03</button>
-          </div> */}
-
           <CurrentWeather weather={weather} />
           <WeatherForecast forecast={forecast} />
         </div>
