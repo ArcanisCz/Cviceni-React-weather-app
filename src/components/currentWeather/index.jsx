@@ -49,13 +49,17 @@ const CurrentWeather = ({ weather }) => {
         <div className="weather__section">
           <h3 className="weather__title">Sunrise</h3>
           <div className="weather__value">
-            <span id="sunrise">{getSunrise(weather?.sys.sunrise)}</span>
+            <span id="sunrise">
+              {getSunrise(weather?.sys.sunrise + weather?.timezone - 3600)}
+            </span>
           </div>
         </div>
         <div className="weather__section">
           <h3 className="weather__title">Sunset</h3>
           <div className="weather__value">
-            <span id="sunset">{getSunset(weather?.sys.sunset)}</span>
+            <span id="sunset">
+              {getSunset(weather?.sys.sunset + weather?.timezone - 3600)}
+            </span>
           </div>
         </div>
       </div>
