@@ -27,16 +27,9 @@ const months = [
   'Dec',
 ];
 
-export const getSunrise = (unixSunrise) => {
-  const hours = new Date(unixSunrise * 1000).getHours();
-  const minutes = new Date(unixSunrise * 1000).getMinutes();
-  const twoDigitMinutes = minutes.toString().padStart(2, '0');
-  return `${hours}:${twoDigitMinutes}`;
-};
-
-export const getSunset = (unixSunset) => {
-  const hours = new Date(unixSunset * 1000).getHours();
-  const minutes = new Date(unixSunset * 1000).getMinutes();
+export const getTimeStamp = (unixTimeStamp) => {
+  const hours = new Date(unixTimeStamp * 1000).getHours();
+  const minutes = new Date(unixTimeStamp * 1000).getMinutes();
   const twoDigitMinutes = minutes.toString().padStart(2, '0');
   return `${hours}:${twoDigitMinutes}`;
 };

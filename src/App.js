@@ -8,7 +8,7 @@ import SelectCity from './components/selectCity';
 const myId = process.env.REACT_APP_MY_API_ID;
 
 const App = () => {
-  const [weather, setWeather] = useState(null); //string?!
+  const [weather, setWeather] = useState(null);
   const [city, setCity] = useState('Prague');
   const [forecast, setForecast] = useState(null);
 
@@ -38,9 +38,6 @@ const App = () => {
 
   useEffect(() => {
     fetchWeather(city);
-  }, [city]);
-
-  useEffect(() => {
     fetchForecast(city);
   }, [city]);
 

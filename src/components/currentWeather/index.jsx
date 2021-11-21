@@ -1,8 +1,7 @@
 import React from 'react';
 import './style.css';
 
-import { getSunrise } from '../../utils/functions';
-import { getSunset } from '../../utils/functions';
+import { getTimeStamp } from '../../utils/functions';
 import { getBackground } from '../../utils/functions';
 
 const CurrentWeather = ({ weather }) => {
@@ -50,7 +49,7 @@ const CurrentWeather = ({ weather }) => {
           <h3 className="weather__title">Sunrise</h3>
           <div className="weather__value">
             <span id="sunrise">
-              {getSunrise(weather?.sys.sunrise + weather?.timezone - 3600)}
+              {getTimeStamp(weather?.sys.sunrise + weather?.timezone - 3600)}
             </span>
           </div>
         </div>
@@ -58,7 +57,7 @@ const CurrentWeather = ({ weather }) => {
           <h3 className="weather__title">Sunset</h3>
           <div className="weather__value">
             <span id="sunset">
-              {getSunset(weather?.sys.sunset + weather?.timezone - 3600)}
+              {getTimeStamp(weather?.sys.sunset + weather?.timezone - 3600)}
             </span>
           </div>
         </div>
