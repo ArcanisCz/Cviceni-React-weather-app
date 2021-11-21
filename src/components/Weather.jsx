@@ -1,5 +1,4 @@
 import React  from "react";
-import "./Weather.css"
 
 import {getLocalTime} from "../utils/helpers.js";
 
