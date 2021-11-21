@@ -16,7 +16,7 @@ const filterForecast = (forecastAll) => {
 
 const getDay = (timeUtc) => {
     let date = new Date (timeUtc * 1000)
-    return `${days[date.getDay()-1]}, ${date.getDate()} ${months[date.getMonth()]}`
+    return `${days[date.getDay()]}, ${date.getDate()} ${months[date.getMonth()]}`
 }
 
 export {getLocalTime, filterForecast, getDay};
