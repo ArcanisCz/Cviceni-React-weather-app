@@ -60,7 +60,7 @@ const App = () => {
         <div className="button-group">
             <button className="button" onClick={handleButtonClick}>Prague</button>
             <button className="button" onClick={handleButtonClick}>London</button>
-            <button className="button" onClick={handleButtonClick}>Tenerife</button>
+            <button className="button" onClick={handleButtonClick}>Puerto de la Cruz</button>
           </div> 
 
         <div className="select-wrapper">
