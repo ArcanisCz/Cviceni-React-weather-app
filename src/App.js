@@ -49,6 +49,10 @@ const App = () => {
     setCity(event.target.outerText);
   }
 
+  const handleOnCityChange = (event) => {
+    setCity(event.target.value);
+  }
+
   return (
     <div className="App">
       <div className="container">
@@ -59,17 +63,17 @@ const App = () => {
             <button className="button" onClick={handleButtonClick}>Tenerife</button>
           </div> 
 
-       {/* <div className="select-wrapper">
+        <div className="select-wrapper">
           <select
             className="select"
             name="cityselect"
             id="cityselect"
             value={city}
-            onChange={(target) => setCity(target.value)}
+            onChange={handleOnCityChange}
           >
-            {cities.map(city => <option value={city} key={city}>{city}</option>)}
+            {cities.map((town) => <option value={town} key={town}>{town}</option>)}
           </select>
-          </div> */}
+          </div> 
         
         <div className="weather">
           {weather ? <Weather weather={weather} /> : <Loading />}
