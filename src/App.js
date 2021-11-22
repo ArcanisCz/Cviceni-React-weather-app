@@ -10,8 +10,8 @@ import "./App.css";
 const App = () => {
   
   const API_KEY = process.env.REACT_APP_MY_API_ID
-  const API_BASE_CURRENT = 'http://api.openweathermap.org/data/2.5/weather?units=metric&APPID=';
-  const API_BASE_FORECAST = 'http://api.openweathermap.org/data/2.5/forecast?units=metric&APPID=';
+  const API_BASE_CURRENT = 'https://api.openweathermap.org/data/2.5/weather?units=metric&APPID=';
+  const API_BASE_FORECAST = 'https://api.openweathermap.org/data/2.5/forecast?units=metric&APPID=';
  
   // const [weather, setWeather] = useState(weatherData);
   const [weather, setWeather] =  useState(null);
