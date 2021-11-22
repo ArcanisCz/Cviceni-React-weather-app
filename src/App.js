@@ -5,6 +5,7 @@ import Weather from "./components/Weather";
 import Loading from "./components/Loading";
 import Forecast from "./components/Forecast";
 import { filterForecast } from "./utils/helpers";
+import {cities} from "./utils/cities"
 import "./App.css";
 
 const App = () => {
@@ -52,14 +53,25 @@ const App = () => {
     <div className="App">
       <div className="container">
         <h1>My Weather App</h1>
-        <div className="weather">
-
-          <div className="button-group">
+        <div className="button-group">
             <button className="button" onClick={handleButtonClick}>Prague</button>
             <button className="button" onClick={handleButtonClick}>London</button>
             <button className="button" onClick={handleButtonClick}>Tenerife</button>
           </div> 
 
+       {/* <div className="select-wrapper">
+          <select
+            className="select"
+            name="cityselect"
+            id="cityselect"
+            value={city}
+            onChange={(target) => setCity(target.value)}
+          >
+            {cities.map(city => <option value={city} key={city}>{city}</option>)}
+          </select>
+          </div> */}
+        
+        <div className="weather">
           {weather ? <Weather weather={weather} /> : <Loading />}
 
           <div className="weather__forecast" id="predpoved">
