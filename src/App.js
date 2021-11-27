@@ -2,13 +2,15 @@ import React, { useState, useEffect } from "react";
 import "./App.css";
 
 import Weather from './components/Weather';
+import Loading from './components/Loading';
 
-import{cities}  from './utils/cities.js';
+import{cities}  from './utils/index';
+
 const App = () => {
 
   /* API  */
-  const myApiKey = process.env.REACT_APP_MY_API_ID;
-  const currentWeatherAPI = 'https://api.openweathermap.org/data/2.5/weather?q=Prague&units=metric&APPID=700f35f28ea0460f6c47b9af0047a747';
+  const MY_API_KEY = process.env.REACT_APP_MY_API_ID;
+  const CURRENT_WEATHER_API = 'https://api.openweathermap.org/data/2.5/weather?units=metric&APPID=';
 
   
   /*useState for weather and for city */
@@ -18,7 +20,7 @@ const App = () => {
 
   /* fetch function to use api and return response with current weather */
   const fetchWeather = () => {
-    fetch(currentWeatherAPI + myApiKey + '&q=' + city)
+    fetch( CURRENT_WEATHER_API + MY_API_KEY + '&q=' + city)
       .then(response => response.json())
       .then(json => setWeather(json))
   };
@@ -32,9 +34,14 @@ const App = () => {
 
 
   /* handler for button */
-  const handleOnButtonClick = (event) => {
+  const handleOnClickButton = (event) => {
     setCity(event.target.outerText);
   }
+
+  const handleOnChangeCity = (event) => {
+    setCity(event.target.value);
+  }
+
   
 
   return (
@@ -42,9 +49,9 @@ const App = () => {
       <div className="container">
         <h1>My Weather App</h1>
            {<div className="button-group">
-            <button className="button" onClick={handleOnButtonClick} >Prague</button>
-            <button className="button" onClick={handleOnButtonClick} >Berlin</button>
-            <button className="button" onClick={handleOnButtonClick} >Amsterdam</button>
+            <button className="button" onClick={handleOnClickButton} >Prague</button>
+            <button className="button" onClick={handleOnClickButton} >Berlin</button>
+            <button className="button" onClick={handleOnClickButton} >Amsterdam</button>
           </div> }
        
           <div className="select-wrapper">
@@ -53,14 +60,14 @@ const App = () => {
             name="cityselect"
             id="cityselect"
             value={city}
-            onChange={({target}) => setCity(target.value)}
+            onChange={handleOnChangeCity} 
           >
             {cities.map(city => <option value={city} key={city}>{city}</option>)}
           </select>
         </div>
 
          <div className="weather">
-            <Weather weather = {weather}/>
+         {weather ? <Weather weather={weather} /> : <Loading />}
           
         </div>
       </div>
