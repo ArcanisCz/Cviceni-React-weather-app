@@ -1,6 +1,5 @@
 import React from "react";
 import './style.css';
-//import {convertedLocalTime} from '../../utils/';
 
 import {convertedLocalTime} from '../../utils/';
 
