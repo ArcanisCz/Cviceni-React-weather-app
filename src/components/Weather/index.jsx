@@ -2,12 +2,10 @@ import React from "react";
 import './style.css';
 //import {convertedLocalTime} from '../../utils/';
 
-import {convertedDate} from '../../utils/';
+import {convertedLocalTime} from '../../utils/';
 
 const Weather = ({weather}) => {
     return (
-      <>
-      { weather &&
           <div className={weather.main.temp < 10 ? "weather__current weather__current--cold" : "weather__current"}>
             <h2 className="weather__city" id="mesto">
             {weather.name}, {weather.sys.country}
@@ -50,18 +48,17 @@ const Weather = ({weather}) => {
               <div className="weather__section">
                 <h3 className="weather__title">Sunrise</h3>
                 <div className="weather__value">
-                  <span id="sunrise">{convertedDate(String(weather.sys.sunrise))}</span>
+                  <span id="sunrise">{convertedLocalTime(String(weather.sys.sunrise))}</span>
                 </div>
               </div>
               <div className="weather__section">
                 <h3 className="weather__title">Sunset</h3>
                 <div className="weather__value">
-                  <span id="sunset">{convertedDate(String(weather.sys.sunset))}</span>
+                  <span id="sunset">{convertedLocalTime(String(weather.sys.sunset))}</span>
                 </div>
               </div>
             </div>
-          </div> }
-      </>
+          </div> 
   )
 }
 
