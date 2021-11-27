@@ -15,6 +15,7 @@ const convertedDate = (dateStamp) => {
     const formatedDate = days[(dateObject.getDay())] + ", " + (dateObject.getDate())+ " " + months[(dateObject.getMonth())];
     return formatedDate;
 }
+const forecastDashboard = (arr, nth) => arr.filter((e, i) => i % nth === nth - 1)
 
 const cities = [
     "Abuja",
@@ -69,4 +70,27 @@ const cities = [
     "Yakutsk",
   ];  
 
-  export {convertedLocalTime,convertedDate, cities};
+
+  const weatherData = {
+    main: {
+        temp: "--",
+        humidity: "--"
+        }, 
+    name: "City",
+    sys: {
+        country: "Country",
+        sunrise: 1637479734,
+        sunset: 1637510654
+    },
+    weather: [
+        {
+             description: "--",
+             icon: "01n"
+        }
+    ],
+    wind: {
+        speed: "--"
+    },
+    timezone: 0
+};
+  export {convertedLocalTime,convertedDate, forecastDashboard,weatherData,  cities};
