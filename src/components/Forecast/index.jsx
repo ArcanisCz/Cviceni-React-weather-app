@@ -7,7 +7,7 @@ const Forecast = ({ data }) => {
             <div className="forecast">
                 <div className="forecast__day">{convertedDate(data.dt)}</div>
                 <div className="forecast__icon">
-                <img src={`http://openweathermap.org/img/wn/${data.icon}@2x.png`}
+                <img src={`http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`}
                     style={{ height: "100%" }}
                     alt="forecast weather icon"
                 />
