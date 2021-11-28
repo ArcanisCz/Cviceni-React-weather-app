@@ -15,59 +15,8 @@ const convertedDate = (dateStamp) => {
     const formatedDate = days[(dateObject.getDay())] + ", " + (dateObject.getDate())+ " " + months[(dateObject.getMonth())];
     return formatedDate;
 }
-const forecastDashboard = (arr, nth) => arr.filter((e, i) => i % nth === nth - 1)
+const forecastDashboard = (forecastData) => {
+    return forecastData.filter((T, i) => i % 8 === 0);
+}
 
-const cities = [
-    "Abuja",
-    "Amsterdam",
-    "Aswān",
-    "Athens",
-    "Bangkok",
-    "Barcelona",
-    "Belgrade",
-    "Budapest",
-    "Buenos Aires",
-    "Cape Town",
-    "Dakar",
-    "Dublin,IE",
-    "El Alto",
-    "Hanoi",
-    "Harbin",
-    "Kingston",
-    "Kuala Lumpur",
-    "Kuwait",
-    "Kyiv",
-    "Lagos",
-    "Ljubljana",
-    "London",
-    "Madrid",
-    "Melbourne",
-    "Miami",
-    "Minsk",
-    "Moscow",
-    "New Delhi",
-    "New York",
-    "Norilsk",
-    "Paris",
-    "Porto",
-    "Prague",
-    "Puerto de la Cruz",
-    "Reykjavik",
-    "Seoul",
-    "Skopje",
-    "Sofia",
-    "Split",
-    "Sydney",
-    "São Paulo",
-    "Tallinn",
-    "Tirana",
-    "Toronto",
-    "Vancouver",
-    "Vienna",
-    "Vilnius",
-    "Warsaw",
-    "Winnipeg",
-    "Yakutsk",
-  ];  
-
-  export {convertedLocalTime,convertedDate, forecastDashboard, cities};
+  export {convertedLocalTime, convertedDate, forecastDashboard};
