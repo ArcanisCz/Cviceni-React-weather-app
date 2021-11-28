@@ -5,7 +5,7 @@ import Weather from './components/Weather';
 import Loading from './components/Loading';
 import Forecast from './components/Forecast';
 
-import{cities}  from './utils/index';
+import{cities}  from './utils/cities';
 import{forecastDashboard}  from './utils/index';
 
 
@@ -35,7 +35,7 @@ const App = () => {
   const fetchForecast = () => {
     fetch( FORECAST_WEATHER_API + MY_API_KEY + '&q=' + city)
       .then(response => response.json())
-      .then(json => setForecast(forecastDashboard(json.list,8)))
+      .then(json => setForecast(forecastDashboard(json.list)))
   };
 
 
